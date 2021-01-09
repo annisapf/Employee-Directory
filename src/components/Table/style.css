@@ -1,0 +1,29 @@
+#title {
+  text-align: center;
+  font-family: arial, sans-serif;
+}
+
+#employers {
+  text-align: center;
+  margin:auto;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 90%;  
+}
+
+#employers td, #employers th {
+  border: 1px solid #ddd;
+  padding: 60px;
+}
+
+#employers tr:nth-child(even){background-color: #f2f2f2;}
+
+#employers tr:hover {background-color: #ddd;}
+
+#employers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+}
