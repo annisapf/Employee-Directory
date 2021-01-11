@@ -2,31 +2,65 @@ import React, { Component } from 'react'
 
 import "./style.css"
 
+import axios from "axios";
+
+
 class Table extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            employers: [
-                { id: 'Number', name: 'Name', age: 'Age', email: 'Email' },
-                { id: 1, name: 'Annisa', age: 21, email: 'annisa@email.com' },
-                { id: 2, name: 'Alvaro', age: 19, email: 'alvaro@email.com' },
-                { id: 3, name: 'Sidnei', age: 16, email: 'sidnei@email.com' },
-            ]
-        }
+    state = {
+        users: [],
+        isLoading: true,
+        errors: null
+    };
+
+    getEmployees() {
+        axios
+            .get("https://randomuser.me/api/?results=20")
+            .then(response =>
+                response.data.results.map(user => ({
+                    name: `${user.name.first} ${user.name.last}`,
+                    username: `${user.login.username}`,
+                    phone: `${user.phone}`,
+                    dob: `${user.dob.date}`,
+                    email: `${user.email}`,
+                    image: `${user.picture.large}`
+                }))
+            )
+            .then(users => {
+                this.setState({
+                    users,
+                    isLoading: false
+                });
+            })
+            .catch(error => this.setState({ error, isLoading: false }));
+    }
+
+    componentDidMount() {
+        this.getEmployees();
     }
 
     renderTableData() {
-        return this.state.employers.map((employers, index) => {
-            const { id, name, age, email } = employers
-            return (
-                <tr key={id}>
-                    <td>{id}</td>
-                    <td>{name}</td>
-                    <td>{age}</td>
-                    <td>{email}</td>
-                </tr>
-            )
-        })
+        const { isLoading, users } = this.state;
+        return (
+            <React.Fragment>
+                {!isLoading ? (
+                    users.map(user => {
+                        const { username, name, phone, email, dob, image } = user;
+                        return (
+                            <tr key={username}>
+                                <td><img src={image} alt={name} /></td>
+                                <td>{name}</td>
+                                <td>{phone}</td>
+                                <td>{email}</td>
+                                <td>{dob}</td>
+                            </tr>
+
+                        );
+                    })
+                ) : (
+                        <p>Loading...</p>
+                    )}
+            </React.Fragment>
+        );
     }
 
     render() {
@@ -35,6 +69,7 @@ class Table extends Component {
                 <h1 id='title'>Employee Directory</h1>
                 <table id='employers'>
                     <tbody>
+
                         {this.renderTableData()}
                     </tbody>
                 </table>
@@ -42,7 +77,6 @@ class Table extends Component {
         )
     }
 }
-
 
 
 
