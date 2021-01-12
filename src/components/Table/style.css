@@ -13,7 +13,7 @@
 
 #employers td, #employers th {
   border: 1px solid #ddd;
-  padding: 60px;
+  padding: 30px;
 }
 
 #employers tr:nth-child(even){background-color: #f2f2f2;}

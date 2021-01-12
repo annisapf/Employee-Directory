@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Row from "./Row/Row";
 import Column from "./Column/Column";
 import Search from "./Search/Search";
-
+import Container from "./Container/Container"
+import Jumbotron from "./Jumbotron/Jumbotron"
 import Table from "./Table/Table";
 import renderDataAPI from "../utils/API";
 
@@ -114,21 +115,25 @@ class MainPage extends Component {
 
     render() {
         return (
-            <Row>
-                <Column size="lg-12">
-                    <Search
-                        value={this.state.search}
-                        handleInputChange={this.handleInputChange}
-                    />
-                </Column>
+            <Container>
+                <Jumbotron heading="Employee Directory"
+                    heading2="Click on carrots to filter by heading or use the search box to narrow your results." />
+                <Row>
+                    <Column size="lg-12">
+                        <Search
+                            value={this.state.search}
+                            handleInputChange={this.handleInputChange}
+                        />
+                    </Column>
 
-                <Column size="lg-12">
-                    <Table
-                        employees={this.state.search === "" ? this.state.result : this.state.searchResult}
-                        onClick={this.handleButtonClick}
-                    />
-                </Column>
-            </Row>
+                    <Column size="lg-12">
+                        <Table
+                            employees={this.state.search === "" ? this.state.result : this.state.searchResult}
+                            onClick={this.handleButtonClick}
+                        />
+                    </Column>
+                </Row>
+            </Container>
         );
     }
 }
