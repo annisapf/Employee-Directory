@@ -1,11 +1,53 @@
-# Getting Started with Create React App
+# Employee-Directory
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+*Employee-Directory* allows employees or managers to benefit greatly from being able to view non-sensitive data about other employees. It would be particularly helpful to be able to filter employees by first name, last name, phone number, email and date of birth.
 
-## Available Scripts
+## Table of Contents 
 
-In the project directory, you can run:
+* [Screen Shots](#screenshots)
 
+* [Demo](#demo)
+
+* [Business Context](#businesscontext)
+
+* [Acceptance Criteria](#acceptancecriteria)
+
+* [Usage](#usage)
+    
+* [License](#license)
+    
+* [Contributing](#contributing)
+    
+* [Questions](#questions)
+
+
+## Screenshots
+
+![Employee Directory](https://user-images.githubusercontent.com/7066137/104261347-74d9cf80-54d9-11eb-8ba7-cf839083cb79.png)
+
+
+## Demo
+
+![gif Employee Directory](https://user-images.githubusercontent.com/7066137/104262626-12ce9980-54dc-11eb-8c48-18f64acc0559.gif)
+
+
+
+## Business Context
+
+An employee or manager would benefit greatly from being able to view non-sensitive data about other employees. It would be particularly helpful to be able to filter employees by name.
+
+## Acceptance Criteria
+
+Given a table of random users generated from the [Random User API](https://randomuser.me/), when the user loads the page, a table of employees should render. 
+
+The user should be able to:
+
+  * Sort the table by at least one category
+
+  * Filter the users by at least one property.
+
+## Usage
+    
 ### `yarn start`
 
 Runs the app in the development mode.\
@@ -29,42 +71,24 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+  
+## License
+The license is MIT standard license.
+        
+## Contributing
+    
+It is an open project and everyone can contribute - please send an email requesting to be added as a contributor
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Link to the App
+<a href="https://annisapf.github.io/Employee-Directory/">The URLs of the deployed application</a><hr>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+     
+## Questions
+    
+If you have any questions about the repo, open an issue or contact [annisapf](https://github.com/annisapf/) directly at a.purbandari@gmail.com.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
