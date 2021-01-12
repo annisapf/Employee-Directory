@@ -1,83 +1,47 @@
-import React, { Component } from 'react'
+import React from "react";
 
-import "./style.css"
-
-import axios from "axios";
+import "./style.css";
 
 
-class Table extends Component {
-    state = {
-        users: [],
-        isLoading: true,
-        errors: null
-    };
-
-    getEmployees() {
-        axios
-            .get("https://randomuser.me/api/?results=20")
-            .then(response =>
-                response.data.results.map(user => ({
-                    name: `${user.name.first} ${user.name.last}`,
-                    username: `${user.login.username}`,
-                    phone: `${user.phone}`,
-                    dob: `${user.dob.date}`,
-                    email: `${user.email}`,
-                    image: `${user.picture.large}`
-                }))
-            )
-            .then(users => {
-                this.setState({
-                    users,
-                    isLoading: false
-                });
-            })
-            .catch(error => this.setState({ error, isLoading: false }));
-    }
-
-    componentDidMount() {
-        this.getEmployees();
-    }
-
-    renderTableData() {
-        const { isLoading, users } = this.state;
-        return (
-            <React.Fragment>
-                {!isLoading ? (
-                    users.map(user => {
-                        const { username, name, phone, email, dob, image } = user;
-                        return (
-                            <tr key={username}>
-                                <td><img src={image} alt={name} /></td>
-                                <td>{name}</td>
-                                <td>{phone}</td>
-                                <td>{email}</td>
-                                <td>{dob}</td>
-                            </tr>
-
-                        );
-                    })
-                ) : (
-                        <p>Loading...</p>
-                    )}
-            </React.Fragment>
-        );
-    }
-
-    render() {
-        return (
-            <div>
-                <h1 id='title'>Employee Directory</h1>
-                <table id='employers'>
-                    <tbody>
-
-                        {this.renderTableData()}
-                    </tbody>
-                </table>
-            </div>
-        )
-    }
+function Table(props) {
+  return (
+    <table className="table table-hover" id="employers">
+      <thead className="thead-light">
+        <tr>
+          <th scope="col">Image</th>
+          <th scope="col">First Name
+          
+          </th>
+          <th scope="col">Last Name
+            
+          </th>
+          <th scope="col">Phone #</th>
+          <th scope="col">Email Address</th>
+          <th scope="col">DOB</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          props.employees.map((employee, index) => {
+            let date = new Date(employee.dob.date);
+            let newDate =
+              `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
+            return (
+              <tr key={index}>
+                <td>
+                  <img src={employee.picture.large} alt={employee.name.first}></img>
+                </td>
+                <td>{employee.name.first}</td>
+                <td>{employee.name.last}</td>
+                <td>{employee.phone}</td>
+                <td>{employee.email}</td>
+                <td>{newDate}</td>
+              </tr>)
+          })
+        }
+      </tbody>
+    </table>
+  );
 }
 
-
-
-export default Table 
+export default Table;
